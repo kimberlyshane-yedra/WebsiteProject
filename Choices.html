@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choices</title>
+    
+    <style>
+        
+        body {
+            background-image: url('bgchoices.png'); 
+            background-size: cover; /* Idinagdag para mag-cover sa buong screen */
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Lucida Console', monospace;
+            padding-top: 50px;
+            margin: 0;
+            min-height: 100vh; 
+        }
+        
+        h1 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+        }
+        .Catalog-boxes {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px;
+        }
+
+        /* Styling para sa bawat link/choice */
+        .catalog{
+            display: inline-block; 
+            text-decoration: none;
+            background-color: #668f6f;
+            color: #65000B;
+            padding: 30px 50px;
+            font-size: 1.2em;
+            border-radius: 15px;/*para di tulis yung box*/
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .catalog:hover {
+            background-color: #14c99c;/*click change color*/
+            transform: scale(1.05);
+        }
+    
+    </style>
+    
+    </head>
+<body>
+    
+    <h1>Welcome To Our Bags Shop Catalog</h1>
+
+    <div class="Catalog-boxes">
+       <div class="catalog"> When I the Time is right, I the Lord will make it happen<br>
+        -Isaiah 60:22</div>
+    </div>
+    <div class="Catalog-boxes">
+        <a href="Men.html" class="catalog">Men's Bags Section</a>
+        <a href="Women.html" class="catalog">Women's Bag Section</a>
+    </div>
+    </body>
+</html>

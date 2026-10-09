@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Salon</title>
+    <link rel="stylesheet" href="First.css">
+    <style>
+        .form-message {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid;
+        }
+        .success { border-color: green; background-color: #e6ffe6; }
+        .error { border-color: red; background-color: #ffe6e6; }
+    </style>
+</head>
+<nav class="navbar">
+    <div class="navdiv">
+        <div class="logo">
+            <a href="#">Website Namin</a>
+        </div> 
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Women.html">Women Bags</a></li>
+            <li><a href="Men.html">Men Bags</a></li>
+            <li><a href="nail_salon.html"></a></li>
+            <li><a href="about us.html">About us/Contact Us</a></li> 
+        </ul>
+    </div> </nav>
+<body>
+    <div class="form-container">
+    <div id="appointment-form">
+        <h2>Appointment</h2>
+
+        <form action="appointment.php" method="POST">
+            <div id="msg-container"></div>
+            <input type="text" name="client_name" placeholder="Full Name" required>
+            
+            <input type="text" name="contact_info" placeholder="Contact Information (Phone/Email)" required>
+            
+            <select name="service_type" required>
+                <option value="" disabled selected>Services</option>
+                <option value="Manicure">Manicure</option>
+                <option value="Nail extension">Nail Extension</option>
+                <option value="Nail Art">Nail Art</option>
+            </select>
+            
+            <input type="date" name="appointment_date" placeholder="Date" required>
+            
+            <input type="time" name="appointment_time" placeholder="Time" required>
+            
+            <button type="submit" name="submit_appointment">Submit Appointment</button>
+            
+        </form> 
+    </div> 
+    </div>
+    <script>
+    // Kukunin ang URL at parameters
+    const message = new URLSearchParams(window.location.search);
+    const status = message.get('status');
+    const container = document.getElementById('msg-container');
+
+    let htmlContent = '';
+    
+    // Mag-set ng mensahe base
+    if (status === 'success') {
+        htmlContent = `
+            <p style='color: green; font-weight: bold; border: 1px solid green; padding: 10px; text-align: center;'>
+                Your appointment has been scheduled. For cancellation and another inquires, kindly contact us and see contact information in about us page.
+            </p>
+        `;
+    } else if (status === 'error') {
+        htmlContent = `
+            <p style='color: red; font-weight: bold; border: 1px solid red; padding: 10px; text-align: center;'>
+                Error Please Try Again.
+            </p>
+        `;
+    }
+
+    // Ipakita ang mensahe sa page
+    if (htmlContent && container) {
+        container.innerHTML = htmlContent;
+        
+    }
+</script>
+</body>
+</html>
